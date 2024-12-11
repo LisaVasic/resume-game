@@ -4,6 +4,11 @@ const correctAnswerOne = 'number';
 
 export const LevelOne = () => {
   const [inputValue, setInputValue] = useState(''); // allows us to use and change the user input(value)
+  const [submittedValue, setSubmittedValue] = useState('');
+
+  const handleSubmit = () => {
+    setSubmittedValue(inputValue);
+  };
 
   // Event handler for input changes
   const handleInputChange = (e) => {
@@ -11,8 +16,8 @@ export const LevelOne = () => {
   };
 
   // Check the answer after each input change
-  if (inputValue === correctAnswerOne) {
-    // alert('Correct');
+  if (submittedValue === correctAnswerOne) {
+    alert('Correct');
   }
 
   return (
@@ -28,7 +33,7 @@ export const LevelOne = () => {
             <input type="text" /> {/* ageToCheck :number */}
             {'): boolean {\n  return age >= 18;\n}'}
           </pre>
-          <button type="submit" id="guessSubmit">Submit</button>
+          <button type="submit" id="guessSubmit" onClick={handleSubmit}>Submit</button>
         </questionContainer>
       </innerContainer>
     </outerContainer>
