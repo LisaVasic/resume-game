@@ -6,6 +6,7 @@ export const LevelOne = () => {
   const [inputValue, setInputValue] = useState(''); // allows us to use and change the user input(value)
   const [submittedValue, setSubmittedValue] = useState('');
 
+  // // Event handler for submit button, so the value changes when clicked
   const handleSubmit = () => {
     setSubmittedValue(inputValue);
   };
@@ -15,7 +16,7 @@ export const LevelOne = () => {
     setInputValue(e.target.value);
   };
 
-  // Check the answer after each input change
+  // Check the submitted answer
   if (submittedValue === correctAnswerOne) {
     alert('Correct');
   }
