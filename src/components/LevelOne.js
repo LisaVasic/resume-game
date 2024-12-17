@@ -42,9 +42,10 @@ export const LevelOne = () => {
   return (
     <OuterContainer>
       <InnerContainer>
-        <h1>Explanations</h1>
+        <h1>Rubrik</h1>
+        <p>Förklaring</p>
         <QuestionContainer>
-          Fill in the blanks to complete the TypeScript code:
+          <p>Fill in the blanks to complete the TypeScript code:</p>
           <pre>
             {'let age: '}
             <input type="text" name="blankOne" value={inputValue.blankOne} onChange={handleInputChange} /> {/* number */}
