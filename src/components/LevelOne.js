@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Buttons, InnerContainer, ProblemContainer } from 'globalstyles';
 
 const correctAnswerOne = 'number';
 const correctAnswerTwo = 'ageToCheck'
 
-// allows us to use and change the user input(value)
+// Allows us to use and change the user input(value)
 export const LevelOne = () => {
   const [inputValue, setInputValue] = useState({
     blankOne: '',
@@ -42,34 +43,41 @@ export const LevelOne = () => {
   return (
     <OuterContainer>
       <InnerContainer>
-        <h1>Rubrik</h1>
-        <p>Förklaring</p>
-        <QuestionContainer>
+        <IntroContainer>
+          <h1>Problemlösare</h1>
+          <p>Förklaring</p>
+        </IntroContainer>
+        <ProblemContainer>
           <p>Fill in the blanks to complete the TypeScript code:</p>
           <pre>
             {'let age: '}
-            <input type="text" name="blankOne" value={inputValue.blankOne} onChange={handleInputChange} /> {/* number */}
+            <Input type="text" name="blankOne" value={inputValue.blankOne} onChange={handleInputChange} /> {/* number */}
             {' = 25;\n\nfunction isAdult('}
-            <input type="text" name="blankTwo" value={inputValue.blankTwo} onChange={handleInputChange} /> {/* ageToCheck */}
+            <Input type="text" name="blankTwo" value={inputValue.blankTwo} onChange={handleInputChange} /> {/* ageToCheck */}
             {':number): boolean {\n  return age >= 18;\n}'}
           </pre>
-          {isCorrect && <p>Correct!</p>}
-          {isfalse && <p>Try again!</p>}
-          <button type="submit" id="guessSubmit" onClick={handleSubmit}>Submit</button>
-        </QuestionContainer>
+        </ProblemContainer>
+        {isCorrect && <p>Correct!</p>}
+        {isfalse && <p>Try again!</p>}
+        <Buttons type="submit" id="guessSubmit" onClick={handleSubmit}>SUBMIT</Buttons>
       </InnerContainer>
     </OuterContainer>
   );
 }
 
+// STYLING, MOBILE FIRST
+
 export const OuterContainer = styled.div`
 
 `;
 
-export const InnerContainer = styled.div`
-`;
-
-export const QuestionContainer = styled.div`
+export const IntroContainer = styled.div`
 
 `;
 
+export const Input = styled.input`
+width: 70px;
+border: none;
+opacity: 30%;
+border-radius: 5px;
+`;
