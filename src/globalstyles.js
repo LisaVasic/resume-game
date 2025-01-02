@@ -31,6 +31,6 @@ export const Buttons = styled.button`
   padding: 15px;
   border-radius: 5px;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 800;
 `;
 
