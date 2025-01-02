@@ -1,4 +1,15 @@
-import styled from 'styled-components';
+import { styled, createGlobalStyle } from 'styled-components';
+
+export const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Pacifico&display=swap');
+
+  body {
+    font-family: "Nunito", serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+  }
+`;
 
 // mobile first
 
@@ -17,7 +28,7 @@ export const InnerContainer = styled.div`
 export const ProblemContainer = styled.div`
   background-color: #F1CBB5;
   border-radius: 5px;
-  width: 90%;
+  width: 80%;
   padding: 15px;
   font-size: 12px;
 `;

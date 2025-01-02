@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Buttons, InnerContainer, ProblemContainer } from 'globalstyles';
+import { Buttons, InnerContainer, ProblemContainer } from 'GlobalStyles';
 
 const correctAnswerOne = 'number';
 const correctAnswerTwo = 'ageToCheck'
@@ -78,6 +78,6 @@ export const IntroContainer = styled.div`
 export const Input = styled.input`
 width: 70px;
 border: none;
-opacity: 30%;
+opacity: 40%;
 border-radius: 5px;
 `;
