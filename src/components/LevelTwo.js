@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Buttons, OuterContainer, InnerContainer, IntroContainer, ProblemContainer } from 'GlobalStyles';
 
 export const LevelTwo = () => {
   const [isCorrect, setIsCorrect] = useState(null);
@@ -22,9 +23,12 @@ export const LevelTwo = () => {
   return (
     <OuterContainer>
       <InnerContainer>
-        <h1>Rubrik</h1>
-        <p>Förklaring</p>
-        <QuestionContainer>
+        <IntroContainer>
+          <h1>Schysst kollega</h1>
+          <p>Lorem ispum bla vla vlas.</p>
+          <img src="/assets/images/imgLev1.png" alt="working lady" />
+        </IntroContainer>
+        <ProblemContainer>
           <p>Scenario - vad gör jag!</p>
           <RadioButtonContainer>
             <input name="option" type="radio" value="wrong" onChange={handleInputChange} /> Option 1
@@ -33,23 +37,12 @@ export const LevelTwo = () => {
           </RadioButtonContainer>
           {isCorrect === true && <p>Correct!</p>}
           {isCorrect === false && <p>Try again!</p>}
-          <button type="submit" id="guessSubmit" onClick={handleSubmit}>Submit</button>
-        </QuestionContainer>
+        </ProblemContainer>
+        <Buttons type="submit" id="guessSubmit" onClick={handleSubmit}>Submit</Buttons>
       </InnerContainer>
     </OuterContainer>
   )
 }
-
-export const OuterContainer = styled.div`
-
-`;
-
-export const InnerContainer = styled.div`
-`;
-
-export const QuestionContainer = styled.div`
-
-`;
 
 export const RadioButtonContainer = styled.div`
 

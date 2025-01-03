@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { Buttons, OuterContainer, InnerContainer, IntroContainer, ProblemContainer } from 'GlobalStyles';
 // import img from 'public/assets/images/imgLev1.png';
@@ -15,7 +16,7 @@ export const LevelOne = () => {
 
   const [isCorrect, setIsCorrect] = useState(false);
   const [isfalse, setIsFalse] = useState(false);
-  // const [submittedValue, setSubmittedValue] = useState(false);
+  const navigate = useNavigate();
 
   // // Event handler for submit button, so the value changes when clicked
   const handleSubmit = () => {
@@ -24,8 +25,10 @@ export const LevelOne = () => {
     setIsFalse(false);
     if (inputValue.blankOne === correctAnswerOne && inputValue.blankTwo === correctAnswerTwo) {
       setIsCorrect(true);
+      isCorrect(true);
     } else {
       setIsFalse(true);
+      isfalse(true);
     }
   };
 
@@ -36,6 +39,11 @@ export const LevelOne = () => {
       ...prevState, // Copy previous state
       [name]: value // Update the specific field
     }));
+  };
+
+  const handleNextQuestion = () => {
+    // Navigate to next page (can be changed to a specific route)
+    navigate('/levelTwo');
   };
 
   return (
@@ -58,13 +66,21 @@ export const LevelOne = () => {
         </ProblemContainer>
         {isCorrect && <p>Rätt, snyggt jobbat!</p>}
         {isfalse && <p>Tyvärr, försök igen!</p>}
-        <Buttons type="submit" id="guessSubmit" onClick={handleSubmit}>Kör</Buttons>
+
+        {/* Two buttons depending if problem is solved or not */}
+
+        {!isCorrect ? (
+          <Buttons type="submit" id="guessSubmit" onClick={handleSubmit}>OK</Buttons>
+        ) : (
+          <Buttons type="button" id="nextQuestion" onClick={handleNextQuestion}>Gå vidare</Buttons> // "Gå vidare" when answered correctly
+        )}
+
       </InnerContainer>
     </OuterContainer>
   );
 }
 
-// STYLING, MOBILE FIRST
+// LOCAL STYLING, MOBILE FIRST
 
 export const Input = styled.input`
 width: 60px;
