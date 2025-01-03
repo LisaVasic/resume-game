@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Buttons, InnerContainer, ProblemContainer } from 'GlobalStyles';
+import { Buttons, OuterContainer, InnerContainer, IntroContainer, ProblemContainer } from 'GlobalStyles';
+// import img from 'public/assets/images/imgLev1.png';
 
-const correctAnswerOne = 'number';
-const correctAnswerTwo = 'ageToCheck'
+const correctAnswerOne = 'ageToCheck';
+const correctAnswerTwo = 'boolean'
 
 // Allows us to use and change the user input(value)
 export const LevelOne = () => {
@@ -18,6 +19,9 @@ export const LevelOne = () => {
 
   // // Event handler for submit button, so the value changes when clicked
   const handleSubmit = () => {
+    // Reset previous messages
+    setIsCorrect(false);
+    setIsFalse(false);
     if (inputValue.blankOne === correctAnswerOne && inputValue.blankTwo === correctAnswerTwo) {
       setIsCorrect(true);
     } else {
@@ -34,32 +38,27 @@ export const LevelOne = () => {
     }));
   };
 
-  // Check the submitted answer
-  // if (inputValue.blankOne === correctAnswerOne
-  //     && inputValue.blankTwo === correctAnswerTwo) {
-  //   alert('Correct');
-  // }
-
   return (
     <OuterContainer>
       <InnerContainer>
         <IntroContainer>
           <h1>Problemlösare</h1>
-          <p>Förklaring</p>
+          <p>15 års erfarenhet av kreativ problemlösning.</p>
+          <img src="/assets/images/imgLev1.png" alt="working lady" />
         </IntroContainer>
         <ProblemContainer>
-          <p>Fill in the blanks to complete the TypeScript code:</p>
+          <p>Fyll i luckorna för att slutföra TypeScript-koden</p>
           <pre>
-            {'let age: '}
-            <Input type="text" name="blankOne" value={inputValue.blankOne} onChange={handleInputChange} /> {/* number */}
-            {' = 25;\n\nfunction isAdult('}
-            <Input type="text" name="blankTwo" value={inputValue.blankTwo} onChange={handleInputChange} /> {/* ageToCheck */}
-            {':number): boolean {\n  return age >= 18;\n}'}
+            {'let age = 25;\n\nfunction isAdult('}
+            <Input type="text" name="blankOne" value={inputValue.blankOne} onChange={handleInputChange} /> {/* param */}
+            {'): '}
+            <Input type="text" name="blankTwo" value={inputValue.blankTwo} onChange={handleInputChange} /> {/* return type */}
+            {'\n {\n  return age >= 18;\n }'}
           </pre>
         </ProblemContainer>
-        {isCorrect && <p>Correct!</p>}
-        {isfalse && <p>Try again!</p>}
-        <Buttons type="submit" id="guessSubmit" onClick={handleSubmit}>SUBMIT</Buttons>
+        {isCorrect && <p>Rätt, snyggt jobbat!</p>}
+        {isfalse && <p>Tyvärr, försök igen!</p>}
+        <Buttons type="submit" id="guessSubmit" onClick={handleSubmit}>Kör</Buttons>
       </InnerContainer>
     </OuterContainer>
   );
@@ -67,16 +66,8 @@ export const LevelOne = () => {
 
 // STYLING, MOBILE FIRST
 
-export const OuterContainer = styled.div`
-
-`;
-
-export const IntroContainer = styled.div`
-
-`;
-
 export const Input = styled.input`
-width: 70px;
+width: 60px;
 border: none;
 opacity: 40%;
 border-radius: 5px;
