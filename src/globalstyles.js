@@ -84,7 +84,8 @@ export const ProblemContainer = styled.div`
 export const Buttons = styled.button`
   background-color: #356D65;
   width: 70%;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
+  margin-top: 20px;
   color: #ffff;
   border: none;
   padding: 15px;

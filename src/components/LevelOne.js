@@ -50,8 +50,8 @@ export const LevelOne = () => {
     <OuterContainer>
       <InnerContainer>
         <IntroContainer>
-          <h1>Problemlösare</h1>
-          <p>15 års erfarenhet av kreativ problemlösning.</p>
+          <h1>Kompetent</h1>
+          <p>15 år på arbetsmarknaden och gedigen erfarenhet av problemlösning.</p>
           <img src="/assets/images/imgLev1.png" alt="working lady" />
         </IntroContainer>
         <ProblemContainer>
