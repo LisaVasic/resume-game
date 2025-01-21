@@ -25,7 +25,7 @@ export const LevelTwo = () => {
 
   const handleNextQuestion = () => {
     // Navigate to next page
-    navigate('/levelTwo');
+    navigate('/levelThree');
   };
 
   return (

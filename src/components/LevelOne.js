@@ -42,7 +42,7 @@ export const LevelOne = () => {
   };
 
   const handleNextQuestion = () => {
-    // Navigate to next page (can be changed to a specific route)
+    // Navigate to next page
     navigate('/levelTwo');
   };
 

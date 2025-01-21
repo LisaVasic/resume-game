@@ -30,7 +30,7 @@ export const InnerContainer = styled.div`
   margin: auto;
   background-color: #F7ECDF;
   width: 400px;
-  height: 800px;
+  height: 100vh;
   border-radius: 5px;
 
   p{
@@ -45,6 +45,7 @@ export const IntroContainer = styled.div`
   gap: 10px;
   justify-content: stretch;
   width: 80%;
+  height: 30%;
 
 h1 {
   font-size: 45px;
