@@ -1,8 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import { OuterContainer, InnerContainer, IntroContainer } from 'GlobalStyles';
+import { useNavigate } from 'react-router-dom';
+import { Buttons, OuterContainer, InnerContainer, IntroContainer } from 'GlobalStyles';
 
 export const Startpage = () => {
+  const navigate = useNavigate();
+
+  const startGame = () => {
+    navigate('/levelOne');
+  };
+
   return (
     <OuterContainer>
       <InnerContainer>
@@ -11,6 +18,7 @@ export const Startpage = () => {
         </IntroContainer>
         <p>Sammanfattning.</p>
         <Image src="/assets/images/imgLev1.png" alt="working lady" />
+        <Buttons type="button" id="startGame" onClick={startGame}>Starta spelet</Buttons>
       </InnerContainer>
     </OuterContainer>
   )
