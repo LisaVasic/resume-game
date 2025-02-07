@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import { Buttons, OuterContainer, InnerContainer, IntroContainer, ProblemContainer } from 'GlobalStyles';
 // import img from 'public/assets/images/imgLev1.png';
 
-const correctAnswerOne = 'ageToCheck';
-const correctAnswerTwo = 'boolean'
+const correctAnswerOne = 'number';
+const correctAnswerTwo = 'boolean';
 
 // Allows us to use and change the user input(value)
 export const LevelOne = () => {
@@ -23,7 +23,8 @@ export const LevelOne = () => {
     // Reset previous messages
     setIsCorrect(false);
     setIsFalse(false);
-    if (inputValue.blankOne === correctAnswerOne && inputValue.blankTwo === correctAnswerTwo) {
+    if (inputValue.blankOne.toLowerCase === correctAnswerOne.toLowerCase
+      && inputValue.blankTwo.toLowerCase === correctAnswerTwo.toLowerCase) {
       setIsCorrect(true);
       isCorrect(true);
     } else {
@@ -52,16 +53,16 @@ export const LevelOne = () => {
         <IntroContainer>
           <h1>Kompetent</h1>
           <p>15 år på arbetsmarknaden och gedigen erfarenhet av problemlösning.</p>
-          <img src="/assets/images/imgLev1.png" alt="working lady" />
+          <img src="/assets/images/Brain-img-2.png" alt="thinking-brain" />
         </IntroContainer>
         <ProblemContainer>
           <p>Fyll i luckorna för att slutföra TypeScript-koden</p>
           <pre>
-            {'let age = 25;\n\nfunction isAdult('}
+            {'const PersonAge: '}
             <Input type="text" name="blankOne" value={inputValue.blankOne} onChange={handleInputChange} /> {/* param */}
-            {'): '}
+            {'= 25;\n\nfunction isAdult(PersonAge: number): '}
             <Input type="text" name="blankTwo" value={inputValue.blankTwo} onChange={handleInputChange} /> {/* return type */}
-            {'\n {\n  return age >= 18;\n }'}
+            {'\n {\n  return PersonAge >= 18;\n }'}
           </pre>
         </ProblemContainer>
         {isCorrect && <p>Rätt, snyggt jobbat!</p>}
@@ -80,10 +81,10 @@ export const LevelOne = () => {
   );
 }
 
-// LOCAL STYLING, MOBILE FIRST
+// Styling for mobile
 
 export const Input = styled.input`
-width: 60px;
+width: 40px;
 border: none;
 opacity: 40%;
 border-radius: 5px;

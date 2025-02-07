@@ -33,25 +33,25 @@ export const LevelTwo = () => {
       <InnerContainer>
         <IntroContainer>
           <h1>Schysst kollega</h1>
-          <p>lorem ipsum bla bla bla</p>
-          <img src="/assets/images/imgLev1.png" alt="working lady" />
+          <p>Teamplayer som gärna delar kunskap och stöttar.</p>
+          <img src="/assets/images/Brain-img-3.png" alt="brain-heart" />
         </IntroContainer>
         <ProblemContainer>
           <p>En kollega har en dålig morgon och är stressad över dagens deadlines.
             Vad gör jag?
           </p>
           <RadioButtonContainer>
-            <div>
+            <>
               <input name="option" id="option1" type="radio" value="wrong" onChange={handleInputChange} />
-              <Op htmlFor="option1"> option 1 </Op>
-            </div>
+              <Op htmlFor="option1"> Skickar roliga tik-toks och memes! </Op>
+            </>
             <div>
               <input name="option" id="option2" type="radio" value="wrong" onChange={handleInputChange} />
-              <Op htmlFor="option2"> option 2 </Op>
+              <Op htmlFor="option2"> Jag har så sjukt mycket på mitt bord, det får vänta lite... </Op>
             </div>
             <div>
               <input name="option" id="option3" type="radio" value="correct" onChange={handleInputChange} />
-              <Op htmlFor="option3"> option 3 </Op>
+              <Op htmlFor="option3"> Erbjuder min hjälp och frågar hur jag kan underlätta. </Op>
             </div>
           </RadioButtonContainer>
         </ProblemContainer>
@@ -84,6 +84,8 @@ export const Op = styled.label`
   padding-left: 30px;
   cursor: pointer;
   margin-bottom: 10px;
+  color: #DE7E5D;
+    font-size: 12px;
   
     &::before {
       content: ' ';
@@ -100,7 +102,11 @@ export const Op = styled.label`
    }
   
    input[type="radio"]:checked + &::before {
-    content: '✔';
+    content: '✘';
     color: #356D65;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px
   }
 `;

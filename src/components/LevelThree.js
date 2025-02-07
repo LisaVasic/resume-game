@@ -10,6 +10,20 @@ export const LevelThree = () => {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState('');
 
+  const avatarSteps = {
+    step1: { row: 0, col: 0 },
+    step2: { row: 0, col: 1 },
+    step3: { row: 0, col: 2 },
+    step4: { row: 1, col: 0 },
+    step5: { row: 1, col: 1 },
+    step6: { row: 1, col: 2 },
+    step7: { row: 2, col: 0 },
+    step8: { row: 2, col: 1 },
+    step9: { row: 2, col: 2 }
+  };
+
+  // const [avatarPosition, setAvatarPosition] = useState(avatarSteps[correctPath[0]]);
+
   const handleStep = (value) => {
     if (value === correctPath[currentStep]) {
       const newSteps = clickedSteps.concat(value); // Add the new step to the array
@@ -22,7 +36,7 @@ export const LevelThree = () => {
         }, 500);
         setErrorMessage('');
       } else {
-        setCurrentStep(currentStep + 1); // Move to the next step
+        setCurrentStep((prevStep) => prevStep + 1); // Move to the next step
         setErrorMessage('');
       }
     } else {
@@ -42,15 +56,15 @@ export const LevelThree = () => {
         <ProblemContainer>
           <p>Hitta rätt väg från start till mål.</p>
           <GameBoard>
-            <Circle className="start" isActive={clickedSteps.includes('step1')} onClick={() => handleStep('step1')} />
-            <Circle isActive={clickedSteps.includes('step2')} onClick={() => handleStep('step2')} />
-            <Circle isActive={clickedSteps.includes('step3')} onClick={() => handleStep('step3')} />
-            <Circle isActive={clickedSteps.includes('step4')} onClick={() => handleStep('step4')} />
-            <Circle isActive={clickedSteps.includes('step5')} onClick={() => handleStep('step5')} />
-            <Circle isActive={clickedSteps.includes('step6')} onClick={() => handleStep('step6')} />
-            <Circle isActive={clickedSteps.includes('step7')} onClick={() => handleStep('step7')} />
-            <Circle isActive={clickedSteps.includes('step8')} onClick={() => handleStep('step8')} />
-            <Circle className="goal" isActive={clickedSteps.includes('step9')} onClick={() => handleStep('step9')} />
+            {Object.keys(avatarSteps).map((step) => (
+              <Circle
+                key={step}
+                isActive={clickedSteps.includes(step)}
+                onClick={() => handleStep(step)}
+                // eslint-disable-next-line no-nested-ternary
+                className={step === 'step1' ? 'start' : step === 'step9' ? 'goal' : ''}
+                showAvatar={step === clickedSteps[clickedSteps.length - 1]} />
+            ))}
           </GameBoard>
         </ProblemContainer>
         <MessageContainer>
@@ -60,6 +74,8 @@ export const LevelThree = () => {
     </OuterContainer>
   )
 }
+
+// Styling for mobile
 
 export const GameBoard = styled.div`
   width: 90%;
@@ -71,20 +87,38 @@ export const GameBoard = styled.div`
   grid-template-rows: repeat(3, 80px);
   gap: 10px;
   padding:10px;
+  position: relative;
 `;
 
 export const Circle = styled.div`
-position: relative;
+
+  background-image: ${(props) => (props.showAvatar ? 'url(\'/assets/images/Brain-img-4.png\')' : 'none')};
+  background-size: cover;
+  background-position: center;
+
 align-self: center; 
 justify-self: center;
-border: solid 1px #DE7E5D;
+border: solid 4px #DE7E5D;
 width:70px;
 height: 70px;
 border-radius: 50%;
 background-color: ${(props) => (props.isActive ? '#8bca84' : 'white')}; /* Change color dynamically */
+position: relative;
+
+
+/*&:after {
+    content: ${(props) => (props.isActive ? '"😄"' : '""')};;
+    font-size: 14px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  */
+
 
 &.start::after {
-    content: "start";
+    content: ${(props) => (props.showAvatar ? '""' : '"start"')};
     font-size: 14px;
     text-align: center;
     position: absolute;
@@ -92,9 +126,10 @@ background-color: ${(props) => (props.isActive ? '#8bca84' : 'white')}; /* Chang
     left: 50%;
     transform: translate(-50%, -50%);
   }
+    
 
 &.goal::after {
-    content: "mål";
+    content: ${(props) => (props.showAvatar ? '""' : '"mål"')};
     font-size: 14px;
     text-align: center;
     position: absolute;
@@ -107,4 +142,10 @@ background-color: ${(props) => (props.isActive ? '#8bca84' : 'white')}; /* Chang
 
 export const MessageContainer = styled.div`
   height: 100px;
+`
+
+export const Image = styled.img`
+  width: 50%;
+  padding: 20px;
+  margin-bottom: 50px;
 `

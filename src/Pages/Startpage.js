@@ -16,7 +16,11 @@ export const Startpage = () => {
         <IntroContainer>
           <h1>Hej!</h1>
         </IntroContainer>
-        <p>Sammanfattning.</p>
+        <WelcomeMsg>
+        Vad kul att du har hittat till mitt CV.
+        För att ta reda på lite mer vem jag är och
+        vad du får när du anställer mig - klicka dig vidare!
+        </WelcomeMsg>
         <Image src="/assets/images/imgLev1.png" alt="working lady" />
         <Buttons type="button" id="startGame" onClick={startGame}>Starta spelet</Buttons>
       </InnerContainer>
@@ -27,5 +31,11 @@ export const Startpage = () => {
 export const Image = styled.img`
   width: 80%;
   padding: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
+`
+
+export const WelcomeMsg = styled.p`
+  
+  padding: 20px;
+
 `
