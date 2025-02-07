@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { Buttons, OuterContainer, InnerContainer, IntroContainer, ProblemContainer } from 'GlobalStyles';
-// import img from 'public/assets/images/imgLev1.png';
+import { Buttons, OuterContainer, InnerContainer, IntroContainer, ProblemContainer } from 'StyledComponents';
+import { GlobalStyles } from './GlobalStyles';
 
 const correctAnswerOne = 'number';
 const correctAnswerTwo = 'boolean';
@@ -49,6 +49,7 @@ export const LevelOne = () => {
 
   return (
     <OuterContainer>
+       <GlobalStyles />
       <InnerContainer>
         <IntroContainer>
           <h1>Kompetent</h1>

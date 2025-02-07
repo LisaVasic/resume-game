@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import { OuterContainer, InnerContainer, IntroContainer, ProblemContainer } from 'GlobalStyles';
+import { OuterContainer, InnerContainer, IntroContainer, ProblemContainer } from './StyledComponents';
+import { GlobalStyles } from './GlobalStyles';
 
 export const LevelThree = () => {
   const correctPath = ['step1', 'step2', 'step5', 'step8', 'step9']
@@ -48,6 +49,7 @@ export const LevelThree = () => {
 
   return (
     <OuterContainer>
+      <GlobalStyles />
       <InnerContainer>
         <IntroContainer>
           <h1>Rubrik</h1>

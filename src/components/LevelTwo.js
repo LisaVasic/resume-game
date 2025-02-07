@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { Buttons, OuterContainer, InnerContainer, IntroContainer, ProblemContainer } from 'GlobalStyles';
+import { Buttons, OuterContainer, InnerContainer, IntroContainer, ProblemContainer } from './StyledComponents';
+import { GlobalStyles } from './GlobalStyles';
 
 export const LevelTwo = () => {
   const [isCorrect, setIsCorrect] = useState(null);
@@ -30,6 +31,7 @@ export const LevelTwo = () => {
 
   return (
     <OuterContainer>
+      <GlobalStyles />
       <InnerContainer>
         <IntroContainer>
           <h1>Schysst kollega</h1>

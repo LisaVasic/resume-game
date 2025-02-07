@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import { Buttons, OuterContainer, InnerContainer, IntroContainer } from 'GlobalStyles';
+import { Buttons, OuterContainer, InnerContainer, IntroContainer } from './StyledComponents';
+import { GlobalStyles } from './GlobalStyles';
 
 export const Startpage = () => {
   const navigate = useNavigate();
@@ -12,6 +13,7 @@ export const Startpage = () => {
 
   return (
     <OuterContainer>
+      <GlobalStyles />
       <InnerContainer>
         <IntroContainer>
           <h1>Hej!</h1>

@@ -7,7 +7,7 @@ import { LevelOne } from 'components/LevelOne';
 import { LevelThree } from 'components/LevelThree';
 import { LevelTwo } from 'components/LevelTwo';
 import { Endpage } from 'Pages/Endpage';
-import { GlobalStyle } from 'GlobalStyles';
+import { GlobalStyle } from './GlobalStyles';
 
 export const App = () => {
   return (
