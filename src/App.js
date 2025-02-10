@@ -7,12 +7,12 @@ import { LevelOne } from 'components/LevelOne';
 import { LevelThree } from 'components/LevelThree';
 import { LevelTwo } from 'components/LevelTwo';
 import { Endpage } from 'Pages/Endpage';
-import { GlobalStyle } from 'globalstyles';
+// import { GlobalStyle } from 'globalstyles';
 
 export const App = () => {
   return (
     <Router>
-      <GlobalStyle />
+      {/* //   <GlobalStyle /> */}
       <Routes>
         <Route path="/" element={<Startpage />} />
         <Route path="/levelOne" element={<LevelOne />} />

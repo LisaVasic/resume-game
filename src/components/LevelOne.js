@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { Buttons, OuterContainer, InnerContainer, IntroContainer, ProblemContainer } from 'StyledComponents';
-import { GlobalStyles } from './GlobalStyles';
+import { GlobalStyle } from '../globalstyles';
+import { OuterContainer, InnerContainer, IntroContainer, ProblemContainer, Buttons } from '../StyledComponents';
 
 const correctAnswerOne = 'number';
 const correctAnswerTwo = 'boolean';
@@ -26,10 +26,10 @@ export const LevelOne = () => {
     if (inputValue.blankOne.toLowerCase === correctAnswerOne.toLowerCase
       && inputValue.blankTwo.toLowerCase === correctAnswerTwo.toLowerCase) {
       setIsCorrect(true);
-      isCorrect(true);
+      // isCorrect(true);
     } else {
       setIsFalse(true);
-      isfalse(true);
+      // isfalse(true);
     }
   };
 
@@ -49,7 +49,7 @@ export const LevelOne = () => {
 
   return (
     <OuterContainer>
-       <GlobalStyles />
+      <GlobalStyle />
       <InnerContainer>
         <IntroContainer>
           <h1>Kompetent</h1>

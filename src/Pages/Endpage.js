@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { OuterContainer, InnerContainer, IntroContainer } from './StyledComponents';
-import { GlobalStyles } from './GlobalStyles';
+import { GlobalStyle } from '../globalstyles';
+import { OuterContainer, InnerContainer, IntroContainer } from '../StyledComponents';
 
 export const Endpage = () => {
   return (
     <OuterContainer>
-      <GlobalStyles />
+      <GlobalStyle />
       <InnerContainer>
         <IntroContainer>
           <h1>Hurra!</h1>

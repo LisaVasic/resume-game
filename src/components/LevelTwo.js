@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { Buttons, OuterContainer, InnerContainer, IntroContainer, ProblemContainer } from './StyledComponents';
-import { GlobalStyles } from './GlobalStyles';
+import { GlobalStyle } from '../globalstyles';
+import { OuterContainer, InnerContainer, IntroContainer, ProblemContainer, Buttons } from '../StyledComponents';
 
 export const LevelTwo = () => {
   const [isCorrect, setIsCorrect] = useState(null);
@@ -18,7 +18,7 @@ export const LevelTwo = () => {
   const handleSubmit = () => {
     if (inputValue === 'correct') {
       setIsCorrect(true);
-      isCorrect(true)
+      // isCorrect(true)
     } else {
       setIsCorrect(false);
     }
@@ -31,7 +31,7 @@ export const LevelTwo = () => {
 
   return (
     <OuterContainer>
-      <GlobalStyles />
+      <GlobalStyle />
       <InnerContainer>
         <IntroContainer>
           <h1>Schysst kollega</h1>
@@ -43,18 +43,18 @@ export const LevelTwo = () => {
             Vad gör jag?
           </p>
           <RadioButtonContainer>
-            <>
+            <RadioOption>
               <input name="option" id="option1" type="radio" value="wrong" onChange={handleInputChange} />
               <Op htmlFor="option1"> Skickar roliga tik-toks och memes! </Op>
-            </>
-            <div>
+            </RadioOption>
+            <RadioOption>
               <input name="option" id="option2" type="radio" value="wrong" onChange={handleInputChange} />
               <Op htmlFor="option2"> Jag har så sjukt mycket på mitt bord, det får vänta lite... </Op>
-            </div>
-            <div>
+            </RadioOption>
+            <RadioOption>
               <input name="option" id="option3" type="radio" value="correct" onChange={handleInputChange} />
               <Op htmlFor="option3"> Erbjuder min hjälp och frågar hur jag kan underlätta. </Op>
-            </div>
+            </RadioOption>
           </RadioButtonContainer>
         </ProblemContainer>
         {isCorrect === true && <p>Hurra! Det stämmer bra.</p>}
@@ -80,6 +80,12 @@ flex-direction: column;
 input {
 display: none;  /* Hides original radio buttons */
 }`;
+
+export const RadioOption = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`
 
 export const Op = styled.label`
   position: relative;

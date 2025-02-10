@@ -16,7 +16,7 @@ export const InnerContainer = styled.div`
   margin: auto;
   background-color: #F7ECDF;
   width: 400px;
-  height: 100%;
+  height: 90%;
   // min-height: 90%;
   border-radius: 5px;
   padding: 20px;
@@ -31,14 +31,14 @@ export const IntroContainer = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: 10px;
   width: 85%;
-  heigt:auto;
+  heigt:20%;
   margin-top: 20px;
   text-align: center;
 
 h1 {
   font-size: 45px;
   font-weight: 800;
-  grid-column: span 2;
+  grid-column: span 3;
   margin: 10px;
   }
 
@@ -50,7 +50,7 @@ h1 {
   img {
   grid-column: 2;
   height: auto;
-  width: 100%;
+  width: 200px;
   padding: 10px;
   }
 `;
